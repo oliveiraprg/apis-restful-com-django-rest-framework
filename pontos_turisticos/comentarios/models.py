@@ -9,4 +9,4 @@ class Comentario(models.Model):
     aprovado = models.BooleanField(default=True)
 
     def __str__(self) -> str:
-        return f'{self.usuario} - {self.comentario}'
+        return f'{self.usuario} - {self.comentario} - {self.data}'

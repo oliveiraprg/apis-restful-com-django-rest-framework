@@ -1,12 +1,12 @@
 from django.db import models
 
 
-
 class Atracao(models.Model):
-    name = models.CharField(max_length=150)
-    description = models.TextField
+    nome = models.CharField(max_length=150)
+    descricao = models.TextField
     horario_fun = models.TextField()
-    idade_min = models.IntegerField
+    idade_min = models.IntegerField()
+    data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return f'{self.name} - {self.description}'
+        return f'{self.nome} - {self.descricao} - {self.horario_fun}'
