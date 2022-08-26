@@ -2,6 +2,7 @@ from django.db import models
 from atracoes.models import Atracao
 from comentarios.models import Comentario
 from avaliacoes.models import Avaliacao
+from localizacao.models import Localizacao
 
 
 class PontoTuristico(models.Model):
@@ -11,6 +12,7 @@ class PontoTuristico(models.Model):
     atracoes = models.ManyToManyField(Atracao)
     comentarios = models.ManyToManyField(Comentario)
     avaliacoes = models.ManyToManyField(Avaliacao)
+    localizacao = models.ForeignKey(Localizacao, on_delete=models.CASCADE)
     data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
