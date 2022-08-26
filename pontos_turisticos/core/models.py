@@ -9,10 +9,10 @@ class PontoTuristico(models.Model):
     nome = models.CharField(max_length=150)
     descricao = models.TextField()
     aprovado = models.BooleanField(default=False)
-    atracoes = models.ManyToManyField(Atracao)
-    comentarios = models.ManyToManyField(Comentario)
-    avaliacoes = models.ManyToManyField(Avaliacao)
-    localizacao = models.ForeignKey(Localizacao, on_delete=models.CASCADE)
+    atracoes = models.ManyToManyField(Atracao, blank=True)
+    comentarios = models.ManyToManyField(Comentario, blank=True)
+    avaliacoes = models.ManyToManyField(Avaliacao, blank=True)
+    localizacao = models.ForeignKey(Localizacao, on_delete=models.CASCADE, null=True, blank=True)
     data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
